@@ -1,8 +1,11 @@
 package com.shafiq.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Data
 @Entity
 @Table(name="user")
 public class User implements Serializable {
@@ -22,4 +25,7 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name="role")
     private Role role;
+
+    @Transient
+    private String token;
 }
